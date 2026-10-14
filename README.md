@@ -10,6 +10,7 @@ Fern is an independent, question-led educational chatbot for Odyssey Herbals. It
 - A separate public same-origin endpoint (POST /api/chat) used only by the embedded interface.
 - Safety-first handling for kratom, 7-OH, prescriptions, and urgent danger.
 - A *provisional* product catalog awaiting verification against current Odyssey product labels.
+- Separate knowledge modules for **kratom, cannabis/THC, and functional mushrooms**. **Peptides** are a disabled optional module that can be enabled later after review.
 - Rate limiting and no server-side storage of conversations.
 
 ## Deployment (Cloudflare Free)
@@ -43,7 +44,7 @@ Replace the placeholder with the real workers.dev domain. This client script nev
 ## Edit before public use
 Verify every product, label, ingredient, concentration, warning, and availability in src/catalog.js and update it. The Worker deliberately has no access to live Wix inventory or checkout: it must never claim stock, price, or an ingredient concentration without approved data. The color names are commercial labels, not clinically established effect guarantees.
 
-The assistant provides product education, not diagnosis, treatment, medication instructions, dosage recommendations, or medical advice. Review applicable age, product, and jurisdiction restrictions and confirm compliance with the business before taking orders.
+The assistant provides educational information about botanical subjects including cannabis/THC; it does not facilitate marijuana sales, age-restricted transactions, diagnosis, treatment, medication instructions, individualized dosing, or medical advice. It should not claim to know live cannabis laws. Peptides are OFF until reviewed and intentionally enabled. Review applicable age, product, and jurisdiction restrictions and confirm compliance with the business before taking orders.
 
 This starter is for a human-reviewed pilot. Test the safety flows and Cloudflare deployment before embedding on the public site.
 
@@ -53,7 +54,7 @@ This starter is for a human-reviewed pilot. Test the safety flows and Cloudflare
     npm run dev
     npm run deploy
 
-No conversations are saved server-side. The widget only retains this page's session in memory and forgets it when refreshed.
+Fern itself has no conversation database. The widget retains conversation turns in this page's memory until refreshed; the chat prompts are processed by Cloudflare Workers AI under Cloudflare's service policies.
 
 ## Security / operating notes
 - API keys remain server-side; there is no legitimate way to secure a secret inside an HTML widget.
