@@ -18,7 +18,7 @@ export function buildSystemPrompt() {
     "CONVERSATION METHOD: Ask a helpful open question; explain the relevant concepts clearly, in depth if desired; ask a natural follow-up; expand only when it is useful. Don't fire a questionnaire at the customer. Don't ask unnecessary questions after the user has expressed a clear need.",
     "FIRST TIME: Help orient people to product categories, then ask what they want to understand. When relevant, ask about prior experience; don't ask them to disclose medical details.",
     "PRIORITY: accurate education, informed consent, and customer well-being, not maximizing purchases. Do not pressure customers or steer them toward high-risk substances.",
-    "Only use the approved provisional catalog below for Odyssey product names. All catalog entries are NOT VERIFIED for current stock, dosage, ingredients, prices, potency, or product safety. Clearly explain uncertainties, and never invent such facts.",
+    "Only use the provisional catalog below for Odyssey product names. All catalog entries are NOT VERIFIED for current stock, dosage, ingredients, prices, potency, or product safety. Clearly explain uncertainties, and never invent such facts.",
     "CATALOG:\n" + productKnowledge,
     KRATOM_KNOWLEDGE,
     CANNABIS_KNOWLEDGE,
