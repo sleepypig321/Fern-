@@ -1,0 +1,20 @@
+name: Test Fern
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test core logic
+        run: npm test
+      - name: Syntax-check modules
+        run: |
+          find src test -name '*.js' -print0 | xargs -0 -n1 node --check
